@@ -22,6 +22,8 @@ void mostra_saida(uint8_t img[ALTURA][LARGURA][CANAIS])
     }
 }
 
+// TODO: transformar a main em uma funcao, desconpacta_grid ou algo assim que recebe como parametros (altura da grid, largura da grid, leitor de bytes da arvore, e leitor de bytes do codigo de huff)
+// OBS, tem que adaptar dentro do codigo tirando a criacao do leitor_de_bytes pra fora, se quiser ler como ele funciona Ã© bem simples sÃ³ tem uma funcao de verdade, se nao eu arrumo isso amanha ou algum outro dia com mais calma
 int main() {
     //abrindo o arquivo
     Leitor_de_bytes *byte_lido = criar_Leitor_de_bytes(ARVORE);
@@ -49,7 +51,7 @@ int main() {
             atual->esq = aloca_arvore();
             coloca_na_pilha(pilha_de_filhos, atual -> esq);
         }
-        //iniciando a cor no Nó se for uma folha
+        //iniciando a cor no NÃ³ se for uma folha
         if((bit1 == 0) && (bit2 == 0))
             le_cor(atual, byte_lido);
 
@@ -63,7 +65,7 @@ int main() {
 
     fechar_Leitor_de_bytes(byte_lido);
 
-    //debugando com print pq né
+    //debugando com print pq nÃ©
     //mostra_arvore(raiz, 0);
 
     //arvore feita ======================================
@@ -82,13 +84,15 @@ int main() {
         {
             while (!(atual -> folha))
             {
-                //codigo de huffman até encontrar a cor
+                //codigo de huffman atÃ© encontrar a cor
                 bit1 = ler_bit(byte_lido);
                 if (bit1 == 1)
                     atual = atual->esq;
                 else if (bit1 == 0)
                     atual = atual -> dir;
             }
+
+            // TODO: usar essa saida, ou retornar a matriz na funcao para concatenar no arquivo BMP
             //colocando a cor na saida
             saida[y][x][0] = atual -> r;
             saida[y][x][1] = atual -> g;
