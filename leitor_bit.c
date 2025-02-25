@@ -26,7 +26,7 @@ Leitor_de_bytes* criar_Leitor_de_bytes(char *nome_arquivo)
 }
 
 //funcao que le o proximo bit do leitor
-uint8_t ler_bit(Leitor_de_bytes *byte_lido) {
+int ler_bit(Leitor_de_bytes *byte_lido) {
     //se o byte ja foi lido, le o proximo
     if (byte_lido -> posicao_bit == 8)
     {

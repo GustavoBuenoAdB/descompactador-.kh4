@@ -15,7 +15,7 @@ typedef struct {
 Leitor_de_bytes* criar_Leitor_de_bytes(char *nome_arquivo);
 
 //funcao que le o proximo bit do leitor
-uint8_t ler_bit(Leitor_de_bytes *byte_lido);
+int ler_bit(Leitor_de_bytes *byte_lido);
 
 //destruindo o leitor de bytes e fechar o arquivo lido
 void fechar_Leitor_de_bytes(Leitor_de_bytes *byte_lido);
