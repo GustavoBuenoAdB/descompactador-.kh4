@@ -19,7 +19,7 @@
 void mostra_saida(uint8_t img[ALTURA][LARGURA][CANAIS]);
 
 // Função para descompactar a grade a partir da árvore de Huffman
-void descompacta_grid(int altura, int largura, Leitor_de_bytes *arvore, Leitor_de_bytes *codigo, Arvore* root);
+void descompacta_grid(int altura, int largura, char *tree, int* at_tree, int* at_huff, char *huff, float*** saida, int x_ini_saida, int y_ini_saida);
 
 // Função principal da descompactação
 int descompactador_main();

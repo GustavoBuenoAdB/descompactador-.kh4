@@ -28,6 +28,7 @@ Arvore* retira_da_pilha(Pilha* pil)
 }
 void desaloca_pilha(Pilha* pil)
 {
+    free(pil->vetor_Arvores);
     free(pil);
 }
 
